@@ -43,5 +43,18 @@ public class MovieCommand {
         return stringToReturn;
     }
 
+    @ShellMethod(key = "update movie", value = "Update given movie's properties")
+    public String updateMovie(String title, String genre, Long length){
+        MovieDto movieDTO = new MovieDto(title, genre, length);
+        movieService.saveMovie(movieDTO);
+        return "Movie updated.";
+    }
+
+    @ShellMethod(key = "delete movie", value= "Deletes movie from database.")
+    public String DeleteMovie(String title){
+        movieService.deleteExistingMovie(title);
+        return "If the movie existed, it was deleted.";
+    }
+
 
 }

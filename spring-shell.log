@@ -1,3 +1,72 @@
 1637602898276:create movie "anyád" comedy 69420
 1637602904583:list movie
 1637602911879:list movies
+1637679652343:create movie "apád fasza" kicsi 69420
+1637679653878:list movies
+1637679688407:update movie "apád fasza" comedy 42069
+1637679690820:list movies
+1637679719336:delete movie "apád fasza"
+1637679721749:list movies
+1637680762550:create room "apád" 27 42
+1637680765979:list rooms
+1637680974169:create room "apád" 10 15
+1637680981225:create room "anyád" 20 10
+1637680983483:list rooms
+1637681003970:create room "apád" 10 10
+1637681009217:create room "anyád" 20 20
+1637681011366:list rooms
+1637681230147:create room "fasz" 10 10
+1637681234121:create room "pina" 20 20
+1637681236418:list rooms
+1637681293876:create room "kuki" 10 10
+1637681299634:create room "fasz" 20 20
+1637681301696:list rooms
+1637681321631:create room "kuki" 10 10
+1637681326432:create room "pénisz" 20 20
+1637681329924:list rooms
+1637681352759:delete room "kuki"
+1637681354127:list rooms
+1637681370096:update room "pénisz" 25 25
+1637681371492:list rooms
+1637694868497:list screenings
+1637694894486:create room "Pedersoli" 20 20
+1637694919968:create movie "asd" drama 60
+1637694968889:create screening "asd" "Pedersoli" "2021-03-14 16:00"
+1637694988706:list screenings
+1637695013540:create screening "asd2" "Pedersoli" "2021-03-14 16:22"
+1637695224319:list screenings
+1637695227965:create room "Pedersoli" 20 20
+1637695234264:create movie "asd" drama 60
+1637695240736:create movie "asd2" drama2 61
+1637695245463:create screening "asd" "Pedersoli" "2021-03-14 16:00"
+1637695251755:list screenings
+1637695261188:create screening "asd2" "Pedersoli" "2021-03-14 16:22"
+1637695355298:list screenings
+1637695358998:create room "Pedersoli" 20 20
+1637695363078:create movie "asd" drama 60
+1637695367716:create screening "asd" "Pedersoli" "2021-03-14 16:00"
+1637695376110:create screening "asd" "Pedersoli" "2021-03-14 16:22"
+1637695480279:list screenings
+1637695485555:create room "Pedersoli" 20 20
+1637695489071:create movie "asd" drama 60
+1637695493479:create screening "asd" "Pedersoli" "2021-03-14 16:00"
+1637695508686:create screening "asd" "Pedersoli" "2021-03-14 16:22"
+1637695540534:list screenings
+1637695543454:create room "Pedersoli" 20 20
+1637695546365:create movie "asd" drama 60
+1637695550254:create screening "asd" "Pedersoli" "2021-03-14 16:00"
+1637695555297:create screening "asd" "Pedersoli" "2021-03-14 16:22"
+1637695598222:list screenings
+1637695601098:create room "Pedersoli" 20 20
+1637695604254:create movie "asd" drama 60
+1637695611204:create screening "asd" "Pedersoli" "2021-03-14 16:00"
+1637695618443:create screening "asd" "Pedersoli" "2021-03-14 17:01"
+1637767784299:list screenings
+1637767788776:create room "Pedersoli" 20 20
+1637767793657:create movie "asd" drama 60
+1637767798763:create screening "asd" "Pedersoli" "2021-03-14 16:00"
+1637767804806:list screenings
+1637767827643:create screening "asd" "Pedersoli" "2021-03-14 16:50"
+1637767832811:create screening "asd" "Pedersoli" "2021-03-14 17:01"
+1637767849820:create screening "asd" "Pedersoli" "2021-03-14 17:20"
+1637767852723:list screenings

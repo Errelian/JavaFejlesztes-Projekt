@@ -7,9 +7,9 @@ public interface RoomService {
 
     void addNewRoom(RoomDto roomDto);
 
-    void updateExistingRoom(String name, Long cols, Long rows);
+    void updateExistingRoom(RoomDto roomDto);
 
-    void deleteExistingRoom(String title);
+    void deleteExistingRoom(String name);
 
     List<Room> listAllRooms();
 

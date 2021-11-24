@@ -26,14 +26,14 @@ public class RoomServiceImpl implements RoomService{
     }
 
     @Override
-    public void updateExistingRoom(String name, Long columns, Long rows) {
-        Optional<Room> queriedRoom = roomRepository.findByName(name);
+    public void updateExistingRoom(RoomDto roomDto) {
+        Optional<Room> queriedRoom = roomRepository.findByName(roomDto.getName());
 
         if (queriedRoom.isPresent())
         {
             Room newRoom = queriedRoom.get();
-            newRoom.setSeatColumns(columns);
-            newRoom.setSeatRows(rows);
+            newRoom.setSeatColumns(roomDto.getSeatColumns());
+            newRoom.setSeatRows(roomDto.getSeatRows());
             roomRepository.save(newRoom);
         };
     }

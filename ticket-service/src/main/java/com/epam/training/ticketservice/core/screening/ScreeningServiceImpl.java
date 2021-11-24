@@ -66,4 +66,9 @@ public class ScreeningServiceImpl implements ScreeningService{
     public Optional<Screening> getScreeningByTitleRoomAndDate(String movieTitle, String roomName, LocalDateTime screeningDate) {
         return screeningRepository.findByMovieTitleAndRoomNameAndScreeningDate(movieTitle, roomName, screeningDate);
     }
+
+    @Override
+    public List<Screening> getScreeningsInSameRoom(String roomName){
+        return screeningRepository.findByRoomName(roomName);
+    }
 }

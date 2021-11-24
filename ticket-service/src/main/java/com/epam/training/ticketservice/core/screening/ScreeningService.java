@@ -19,4 +19,6 @@ public interface ScreeningService {
     Screening getScreeningById(Long id);
 
     Optional<Screening> getScreeningByTitleRoomAndDate(String movieTitle, String roomName, LocalDateTime screeningDate);
+
+    List<Screening> getScreeningsInSameRoom(String roomName);
 }
