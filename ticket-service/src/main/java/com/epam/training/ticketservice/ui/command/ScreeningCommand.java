@@ -8,9 +8,11 @@ import com.epam.training.ticketservice.core.room.RoomService;
 import com.epam.training.ticketservice.core.screening.Screening;
 import com.epam.training.ticketservice.core.screening.ScreeningDto;
 import com.epam.training.ticketservice.core.screening.ScreeningService;
+import com.epam.training.ticketservice.ui.security.SecuredCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellMethodAvailability;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,7 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 @ShellComponent
-public class ScreeningCommand {
+public class ScreeningCommand extends SecuredCommand {
 
     private final MovieService movieService;
     private final RoomService roomService;
@@ -33,6 +35,7 @@ public class ScreeningCommand {
     }
 
 
+    @ShellMethodAvailability("isAdmin")
     @ShellMethod(key = "create screening", value = "Creates another screening.")
     public String createScreening(String movieTitle, String roomName, String screeningDate){
         Optional<Movie> movie = movieService.getExistingMovieByTitle(movieTitle);
@@ -99,6 +102,7 @@ public class ScreeningCommand {
 
     }
 
+    @ShellMethodAvailability("isAdmin")
     @ShellMethod(key = "delete screening", value = "Deletes a screening.")
     public String deleteScreening(String movieTitle, String roomName, String screeningDate){
         LocalDateTime screeningTime = LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));

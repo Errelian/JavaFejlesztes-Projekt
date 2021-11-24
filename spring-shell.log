@@ -70,3 +70,17 @@
 1637767832811:create screening "asd" "Pedersoli" "2021-03-14 17:01"
 1637767849820:create screening "asd" "Pedersoli" "2021-03-14 17:20"
 1637767852723:list screenings
+1637768443798:help
+1637769158535:create movie
+1637770212550:help
+1637770708596:sign in privileged admin admin
+1637770731641:sign in privileged "admin" "admin"
+1637770748144:help
+1637770753915:sign in privileged admin admin
+1637770756040:help
+1637771085971:describe account
+1637771144013:help
+1637771146748:describe account
+1637771267495:help
+1637771289099:sign in privileged admin admin
+1637771290747:help

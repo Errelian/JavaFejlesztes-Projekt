@@ -5,15 +5,17 @@ import com.epam.training.ticketservice.core.movie.Movie;
 import com.epam.training.ticketservice.core.room.Room;
 import com.epam.training.ticketservice.core.room.RoomDto;
 import com.epam.training.ticketservice.core.room.RoomService;
+import com.epam.training.ticketservice.ui.security.SecuredCommand;
 import org.dom4j.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellMethodAvailability;
 
 import java.util.List;
 
 @ShellComponent
-public class RoomCommand {
+public class RoomCommand  extends SecuredCommand {
 
     private final RoomService roomService;
 
@@ -23,6 +25,7 @@ public class RoomCommand {
         this.roomService = roomService;
     }
 
+    @ShellMethodAvailability("isAdmin")
     @ShellMethod(key = "create room", value = "Creates new room in the Database")
     public String createNewRoom(String name, Long rows, Long columns){
         RoomDto roomDto = new RoomDto(name, rows, columns);
@@ -30,6 +33,7 @@ public class RoomCommand {
         return "Room saved.";
     }
 
+    @ShellMethodAvailability("isAdmin")
     @ShellMethod(key= "update room", value= "Updates an existing room in the Database")
     public String updateRoom(String name, Long rows, Long columns){
         RoomDto roomDto = new RoomDto(name, rows, columns);
@@ -37,6 +41,7 @@ public class RoomCommand {
         return "Room updated.";
     }
 
+    @ShellMethodAvailability("isAdmin")
     @ShellMethod(key= "delete room", value = "Deletes room from Database")
     public String deleteRoom(String name){
         roomService.deleteExistingRoom(name);
