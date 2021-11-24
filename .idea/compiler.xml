@@ -12,9 +12,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ticket-service" target="11" />
-      <module name="ticket-service-acceptance-tests" target="11" />
-      <module name="ticket-service-parent" target="11" />
+      <module name="ticket-service" target="15" />
+      <module name="ticket-service-acceptance-tests" target="15" />
+      <module name="ticket-service-parent" target="15" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

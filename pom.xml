@@ -9,16 +9,15 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.source>11</maven.compiler.source>
-    </properties>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <version>2.5.6</version>
         <artifactId>spring-boot-starter-parent</artifactId>
     </parent>
+
+    <properties>
+        <java.version>15</java.version>
+    </properties>
 
     <modules>
         <module>ticket-service</module>
