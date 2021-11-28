@@ -57,7 +57,7 @@ public class MovieCommand extends SecuredCommand {
 
     @ShellMethod(key = "delete movie", value= "Deletes movie from database.")
     @ShellMethodAvailability("isAdmin")
-    public String DeleteMovie(String title){
+    public String deleteMovie(String title){
         movieService.deleteExistingMovie(title);
         return "If the movie existed, it was deleted.";
     }

@@ -2,7 +2,7 @@
 
 import org.springframework.shell.Availability;
 
-<span class="nc" id="L5">public abstract class SecuredCommand {</span>
+<span class="fc" id="L5">public abstract class SecuredCommand {</span>
     public static void setAuthentication(boolean authentication) {
 <span class="nc" id="L7">        SecuredCommand.authentication = authentication;</span>
 <span class="nc" id="L8">    }</span>
@@ -11,7 +11,7 @@ import org.springframework.shell.Availability;
 <span class="nc" id="L11">        return authentication;</span>
     }
 
-<span class="nc" id="L14">    private static boolean authentication = false;</span>
+<span class="fc" id="L14">    private static boolean authentication = false;</span>
 
     public Availability isAdmin(){
 <span class="nc bnc" id="L17" title="All 2 branches missed.">        if (authentication){</span>

@@ -1,8 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 ticket-service,com.epam.training.ticketservice.core.movie,MovieDto.Builder,28,0,0,0,8,0,5,0,5,0
-ticket-service,com.epam.training.ticketservice.core.movie,Movie,45,0,0,0,11,0,9,0,9,0
+ticket-service,com.epam.training.ticketservice.core.movie,Movie,24,21,0,0,5,6,7,2,7,2
 ticket-service,com.epam.training.ticketservice.core.movie,MovieServiceImpl,79,0,4,0,22,0,9,0,7,0
-ticket-service,com.epam.training.ticketservice.core.movie,MovieDto,152,0,30,0,4,0,23,0,8,0
+ticket-service,com.epam.training.ticketservice.core.movie,MovieDto,140,12,30,0,3,1,22,1,7,1
 ticket-service,com.epam.training.ticketservice.core.screening,ScreeningDto,152,0,30,0,4,0,23,0,8,0
 ticket-service,com.epam.training.ticketservice.core.screening,ScreeningServiceImpl,81,0,2,0,18,0,10,0,9,0
 ticket-service,com.epam.training.ticketservice.core.screening,Screening,43,0,0,0,11,0,10,0,10,0
@@ -12,8 +12,8 @@ ticket-service,com.epam.training.ticketservice.core.room,RoomDto,152,0,30,0,4,0,
 ticket-service,com.epam.training.ticketservice.core.room,RoomServiceImpl,64,0,2,0,17,0,7,0,6,0
 ticket-service,com.epam.training.ticketservice.core.room,Room,54,0,0,0,11,0,9,0,9,0
 ticket-service,com.epam.training.ticketservice.ui.configuration,CustomPromptProvider,8,0,0,0,2,0,2,0,2,0
-ticket-service,com.epam.training.ticketservice.ui.command,MovieCommand,68,0,4,0,19,0,7,0,5,0
+ticket-service,com.epam.training.ticketservice.ui.command,MovieCommand,0,68,0,4,0,19,0,7,0,5
 ticket-service,com.epam.training.ticketservice.ui.command,SignInCommand,29,0,6,0,11,0,7,0,4,0
 ticket-service,com.epam.training.ticketservice.ui.command,RoomCommand,74,0,4,0,19,0,7,0,5,0
 ticket-service,com.epam.training.ticketservice.ui.command,ScreeningCommand,203,0,22,0,42,0,15,0,4,0
-ticket-service,com.epam.training.ticketservice.ui.security,SecuredCommand,18,0,2,0,8,0,6,0,5,0
+ticket-service,com.epam.training.ticketservice.ui.security,SecuredCommand,12,6,2,0,6,2,4,2,3,2
