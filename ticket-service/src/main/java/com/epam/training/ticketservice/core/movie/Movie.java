@@ -1,10 +1,7 @@
 package com.epam.training.ticketservice.core.movie;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Data;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
+@Generated
 public class Movie {
     @Id
     private String title;

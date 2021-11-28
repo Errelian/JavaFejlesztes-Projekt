@@ -45,8 +45,6 @@ public class ScreeningCommand extends SecuredCommand {
             LocalDateTime screeningTime = LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 
             List<Screening> screeningsInTheSameRoom = screeningService.getScreeningsInSameRoom(room.get().getName());
-            boolean overlap = false;
-            boolean breakPeriod = false;
 
             for (Screening screening : screeningsInTheSameRoom){
 
@@ -57,21 +55,12 @@ public class ScreeningCommand extends SecuredCommand {
                 System.out.println(screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))));**/
 
                 if (screeningTime.isAfter(screening.getScreeningDate()) && screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle())))){
-                    overlap = true;
-                    break;
+                    return "There is an overlapping screening";
                 }
 
                 if (screeningTime.isAfter(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))) && screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()) + 10))) {
-                    breakPeriod = true;
-                    break;
+                    return "This would start in the break period after another screening in this room.";
                 }
-            }
-
-            if(overlap){
-                return "There is an overlapping screening";
-            }
-            if (breakPeriod){
-                return "This would start in the break period after another screening in this room.";
             }
 
             ScreeningDto screeningDto = new ScreeningDto(movie.get(), room.get(), screeningTime);

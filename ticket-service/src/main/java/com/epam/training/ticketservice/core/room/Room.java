@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
+@Generated
 public class Room {
 
     @Id

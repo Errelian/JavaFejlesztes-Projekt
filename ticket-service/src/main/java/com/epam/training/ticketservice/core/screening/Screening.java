@@ -1,5 +1,6 @@
 package com.epam.training.ticketservice.core.screening;
 
+import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
+@Generated
 public class Screening {
 
     @Id

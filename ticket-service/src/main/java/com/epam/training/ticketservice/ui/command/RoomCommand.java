@@ -53,7 +53,7 @@ public class RoomCommand  extends SecuredCommand {
         List<Room> roomList = roomService.listAllRooms();
         String stringToReturn = "";
         if(roomList.isEmpty()){
-            stringToReturn = "There are no room at the moment\n\nc";
+            return "There are no room at the moment\n";
         }
         else{
             for (Room room : roomList){

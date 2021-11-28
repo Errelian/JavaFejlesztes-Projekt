@@ -16,9 +16,7 @@ com\epam\training\ticketservice\core\screening\ScreeningService.class
 com\epam\training\ticketservice\ui\security\SecuredCommand.class
 com\epam\training\ticketservice\core\room\Room.class
 com\epam\training\ticketservice\core\screening\ScreeningRepository.class
-com\epam\training\ticketservice\core\room\RoomDto$Builder.class
 com\epam\training\ticketservice\core\movie\MovieDto.class
-com\epam\training\ticketservice\core\movie\MovieDto$Builder.class
 com\epam\training\ticketservice\ui\command\ScreeningCommand.class
 com\epam\training\ticketservice\core\room\RoomDto.class
 com\epam\training\ticketservice\core\room\RoomService.class
