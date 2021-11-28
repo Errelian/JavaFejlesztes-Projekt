@@ -14,6 +14,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Modifying
     @Transactional
     List<Movie> deleteByTitle(String title);
+
     Optional<Movie> findByTitle(String title);
 
 }

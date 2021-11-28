@@ -20,46 +20,45 @@ public class MovieCommand extends SecuredCommand {
 
 
     @Autowired
-<span class="fc" id="L23">    public MovieCommand(MovieService movieService){</span>
+<span class="fc" id="L23">    public MovieCommand(MovieService movieService) {</span>
 <span class="fc" id="L24">        this.movieService = movieService;</span>
 <span class="fc" id="L25">    }</span>
 
-    @ShellMethod(key= &quot;create movie&quot;, value=&quot;Add the movie to the Database&quot;)
+    @ShellMethod(key = &quot;create movie&quot;, value = &quot;Add the movie to the Database&quot;)
     @ShellMethodAvailability(&quot;isAdmin&quot;)
-    public String createMovie(String title, String genre, Long length){
+    public String createMovie(String title, String genre, Long length) {
 <span class="fc" id="L30">        MovieDto movieDto = new MovieDto(title, genre, length);</span>
 <span class="fc" id="L31">        movieService.saveMovie(movieDto);</span>
 <span class="fc" id="L32">        return &quot;Movie saved.&quot;;</span>
     }
 
-    @ShellMethod(key=&quot;list movies&quot;, value=&quot;List all movies in the Database&quot;)
-    public String listAllMovies(){
+    @ShellMethod(key = &quot;list movies&quot;, value = &quot;List all movies in the Database&quot;)
+    public String listAllMovies() {
 <span class="fc" id="L37">        List&lt;Movie&gt; movieList = movieService.listAllMovies();</span>
 <span class="fc" id="L38">        String stringToReturn = &quot;&quot;;</span>
-<span class="fc bfc" id="L39" title="All 2 branches covered.">        if(movieList.isEmpty()){</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (movieList.isEmpty()) {</span>
 <span class="fc" id="L40">            stringToReturn = &quot;There are no movies at the moment&quot;;</span>
+        } else {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            for (Movie movie : movieList) {</span>
+<span class="fc" id="L43">                stringToReturn += movie.toString();</span>
+<span class="fc" id="L44">            }</span>
         }
-        else{
-<span class="fc bfc" id="L43" title="All 2 branches covered.">            for (Movie movie : movieList){</span>
-<span class="fc" id="L44">                stringToReturn += movie.toString();</span>
-<span class="fc" id="L45">            }</span>
-        }
-<span class="fc" id="L47">        return stringToReturn;</span>
+<span class="fc" id="L46">        return stringToReturn;</span>
     }
 
     @ShellMethod(key = &quot;update movie&quot;, value = &quot;Update given movie's properties&quot;)
     @ShellMethodAvailability(&quot;isAdmin&quot;)
-    public String updateMovie(String title, String genre, Long length){
-<span class="fc" id="L53">        MovieDto movieDTO = new MovieDto(title, genre, length);</span>
-<span class="fc" id="L54">        movieService.saveMovie(movieDTO);</span>
-<span class="fc" id="L55">        return &quot;Movie updated.&quot;;</span>
+    public String updateMovie(String title, String genre, Long length) {
+<span class="fc" id="L52">        MovieDto movieDto = new MovieDto(title, genre, length);</span>
+<span class="fc" id="L53">        movieService.saveMovie(movieDto);</span>
+<span class="fc" id="L54">        return &quot;Movie updated.&quot;;</span>
     }
 
-    @ShellMethod(key = &quot;delete movie&quot;, value= &quot;Deletes movie from database.&quot;)
+    @ShellMethod(key = &quot;delete movie&quot;, value = &quot;Deletes movie from database.&quot;)
     @ShellMethodAvailability(&quot;isAdmin&quot;)
-    public String deleteMovie(String title){
-<span class="fc" id="L61">        movieService.deleteExistingMovie(title);</span>
-<span class="fc" id="L62">        return &quot;If the movie existed, it was deleted.&quot;;</span>
+    public String deleteMovie(String title) {
+<span class="fc" id="L60">        movieService.deleteExistingMovie(title);</span>
+<span class="fc" id="L61">        return &quot;If the movie existed, it was deleted.&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

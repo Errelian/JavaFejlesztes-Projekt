@@ -8,49 +8,48 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RoomServiceImpl implements RoomService{
-
+public class RoomServiceImpl implements RoomService {
 
 
     private final RoomRepository roomRepository;
 
     @Autowired
-<span class="nc" id="L18">    public RoomServiceImpl(RoomRepository roomRepository){</span>
-<span class="nc" id="L19">        this.roomRepository = roomRepository;</span>
-<span class="nc" id="L20">    }</span>
+<span class="nc" id="L17">    public RoomServiceImpl(RoomRepository roomRepository) {</span>
+<span class="nc" id="L18">        this.roomRepository = roomRepository;</span>
+<span class="nc" id="L19">    }</span>
 
     @Override
     public void addNewRoom(RoomDto roomDto) {
-<span class="nc" id="L24">        Room newRoom = new Room(roomDto.getName(), roomDto.getSeatRows(), roomDto.getSeatColumns());</span>
-<span class="nc" id="L25">        roomRepository.save(newRoom);</span>
-<span class="nc" id="L26">    }</span>
+<span class="nc" id="L23">        Room newRoom = new Room(roomDto.getName(), roomDto.getSeatRows(), roomDto.getSeatColumns());</span>
+<span class="nc" id="L24">        roomRepository.save(newRoom);</span>
+<span class="nc" id="L25">    }</span>
 
     @Override
     public void updateExistingRoom(RoomDto roomDto) {
-<span class="nc" id="L30">        Optional&lt;Room&gt; queriedRoom = roomRepository.findByName(roomDto.getName());</span>
+<span class="nc" id="L29">        Optional&lt;Room&gt; queriedRoom = roomRepository.findByName(roomDto.getName());</span>
 
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (queriedRoom.isPresent())</span>
-        {
-<span class="nc" id="L34">            Room newRoom = queriedRoom.get();</span>
-<span class="nc" id="L35">            newRoom.setSeatColumns(roomDto.getSeatColumns());</span>
-<span class="nc" id="L36">            newRoom.setSeatRows(roomDto.getSeatRows());</span>
-<span class="nc" id="L37">            roomRepository.save(newRoom);</span>
-        };
-<span class="nc" id="L39">    }</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (queriedRoom.isPresent()) {</span>
+<span class="nc" id="L32">            Room newRoom = queriedRoom.get();</span>
+<span class="nc" id="L33">            newRoom.setSeatColumns(roomDto.getSeatColumns());</span>
+<span class="nc" id="L34">            newRoom.setSeatRows(roomDto.getSeatRows());</span>
+<span class="nc" id="L35">            roomRepository.save(newRoom);</span>
+        }
+        ;
+<span class="nc" id="L38">    }</span>
 
     @Override
     public void deleteExistingRoom(String name) {
-<span class="nc" id="L43">        roomRepository.deleteByName(name);</span>
-<span class="nc" id="L44">    }</span>
+<span class="nc" id="L42">        roomRepository.deleteByName(name);</span>
+<span class="nc" id="L43">    }</span>
 
     @Override
     public List&lt;Room&gt; listAllRooms() {
-<span class="nc" id="L48">        return roomRepository.findAll();</span>
+<span class="nc" id="L47">        return roomRepository.findAll();</span>
     }
 
     @Override
     public Optional&lt;Room&gt; getRoomByName(String name) {
-<span class="nc" id="L53">        return roomRepository.findByName(name);</span>
+<span class="nc" id="L52">        return roomRepository.findByName(name);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

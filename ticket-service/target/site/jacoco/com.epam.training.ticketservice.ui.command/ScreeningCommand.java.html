@@ -37,28 +37,28 @@ public class ScreeningCommand extends SecuredCommand {
 
     @ShellMethodAvailability(&quot;isAdmin&quot;)
     @ShellMethod(key = &quot;create screening&quot;, value = &quot;Creates another screening.&quot;)
-    public String createScreening(String movieTitle, String roomName, String screeningDate){
+    public String createScreening(String movieTitle, String roomName, String screeningDate) {
 <span class="nc" id="L41">        Optional&lt;Movie&gt; movie = movieService.getExistingMovieByTitle(movieTitle);</span>
 <span class="nc" id="L42">        Optional&lt;Room&gt; room = roomService.getRoomByName(roomName);</span>
 
-<span class="nc bnc" id="L44" title="All 4 branches missed.">        if(room.isPresent() &amp;&amp; movie.isPresent()){</span>
-<span class="nc" id="L45">            LocalDateTime screeningTime = LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;));</span>
+<span class="nc bnc" id="L44" title="All 4 branches missed.">        if (room.isPresent() &amp;&amp; movie.isPresent()) {</span>
+<span class="nc" id="L45">            LocalDateTime screeningTime =</span>
+<span class="nc" id="L46">                LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;));</span>
 
-<span class="nc" id="L47">            List&lt;Screening&gt; screeningsInTheSameRoom = screeningService.getScreeningsInSameRoom(room.get().getName());</span>
+<span class="nc" id="L48">            List&lt;Screening&gt; screeningsInTheSameRoom = screeningService.getScreeningsInSameRoom(room.get().getName());</span>
 
-<span class="nc bnc" id="L49" title="All 2 branches missed.">            for (Screening screening : screeningsInTheSameRoom){</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            for (Screening screening : screeningsInTheSameRoom) {</span>
 
-                /**System.out.println(screening.getScreeningDate());
-                System.out.println(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle())));
-
-                System.out.println(screeningTime.isAfter(screening.getScreeningDate()));
-                System.out.println(screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))));**/
-
-<span class="nc bnc" id="L57" title="All 4 branches missed.">                if (screeningTime.isAfter(screening.getScreeningDate()) &amp;&amp; screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle())))){</span>
-<span class="nc" id="L58">                    return &quot;There is an overlapping screening&quot;;</span>
+<span class="nc bnc" id="L52" title="All 4 branches missed.">                if (screeningTime.isAfter(screening.getScreeningDate()) &amp;&amp; screeningTime.isBefore(</span>
+<span class="nc" id="L53">                    screening.getScreeningDate()</span>
+<span class="nc" id="L54">                        .plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle())))) {</span>
+<span class="nc" id="L55">                    return &quot;There is an overlapping screening&quot;;</span>
                 }
 
-<span class="nc bnc" id="L61" title="All 4 branches missed.">                if (screeningTime.isAfter(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))) &amp;&amp; screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()) + 10))) {</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">                if (screeningTime.isAfter(screening.getScreeningDate()</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">                    .plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))) &amp;&amp; screeningTime.isBefore(</span>
+<span class="nc" id="L60">                    screening.getScreeningDate()</span>
+<span class="nc" id="L61">                        .plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()) + 10))) {</span>
 <span class="nc" id="L62">                    return &quot;This would start in the break period after another screening in this room.&quot;;</span>
                 }
 <span class="nc" id="L64">            }</span>
@@ -71,33 +71,35 @@ public class ScreeningCommand extends SecuredCommand {
     }
 
     @ShellMethod(key = &quot;list screenings&quot;, value = &quot;Lists all screenings.&quot;)
-    public String listAllScreenings(){
+    public String listAllScreenings() {
 <span class="nc" id="L75">        List&lt;Screening&gt; screenings = screeningService.listScreenings();</span>
 <span class="nc" id="L76">        String stringToReturn = &quot;&quot;;</span>
-<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (screenings.isEmpty()){</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (screenings.isEmpty()) {</span>
 <span class="nc" id="L78">            stringToReturn = &quot;There are no screenings&quot;;</span>
-        }
-        else{
-<span class="nc bnc" id="L81" title="All 2 branches missed.">            for (Screening screening : screenings){</span>
-<span class="nc" id="L82">                Optional&lt;Movie&gt; movie = movieService.getExistingMovieByTitle(screening.getMovieTitle());</span>
+        } else {
+<span class="nc bnc" id="L80" title="All 2 branches missed.">            for (Screening screening : screenings) {</span>
+<span class="nc" id="L81">                Optional&lt;Movie&gt; movie = movieService.getExistingMovieByTitle(screening.getMovieTitle());</span>
 
-<span class="nc" id="L84">                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;);</span>
+<span class="nc" id="L83">                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;);</span>
 
-<span class="nc" id="L86">                String formattedDateTime = screening.getScreeningDate().format(formatter);</span>
-<span class="nc" id="L87">                stringToReturn += screening.getMovieTitle() + &quot; (&quot; + movie.get().getGenre() + &quot;, &quot; + movie.get().getLength() + &quot; minutes), screened in room &quot; + screening.getRoomName() + &quot;, at &quot; + formattedDateTime + &quot;\n&quot;;</span>
-<span class="nc" id="L88">            }</span>
+<span class="nc" id="L85">                String formattedDateTime = screening.getScreeningDate().format(formatter);</span>
+<span class="nc" id="L86">                stringToReturn +=</span>
+<span class="nc" id="L87">                    screening.getMovieTitle() + &quot; (&quot; + movie.get().getGenre() + &quot;, &quot; + movie.get().getLength() +</span>
+<span class="nc" id="L88">                        &quot; minutes), screened in room &quot; + screening.getRoomName() + &quot;, at &quot; + formattedDateTime + &quot;\n&quot;;</span>
+<span class="nc" id="L89">            }</span>
         }
-<span class="nc" id="L90">        return stringToReturn.substring(0,stringToReturn.length()-1);</span>
+<span class="nc" id="L91">        return stringToReturn.substring(0, stringToReturn.length() - 1);</span>
 
     }
 
     @ShellMethodAvailability(&quot;isAdmin&quot;)
     @ShellMethod(key = &quot;delete screening&quot;, value = &quot;Deletes a screening.&quot;)
-    public String deleteScreening(String movieTitle, String roomName, String screeningDate){
-<span class="nc" id="L97">        LocalDateTime screeningTime = LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;));</span>
-<span class="nc" id="L98">        screeningService.deleteScreening(movieTitle, roomName, screeningTime);</span>
+    public String deleteScreening(String movieTitle, String roomName, String screeningDate) {
+<span class="nc" id="L98">        LocalDateTime screeningTime =</span>
+<span class="nc" id="L99">            LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm&quot;));</span>
+<span class="nc" id="L100">        screeningService.deleteScreening(movieTitle, roomName, screeningTime);</span>
 
-<span class="nc" id="L100">        return &quot;If the screening existed, it was deleted&quot;;</span>
+<span class="nc" id="L102">        return &quot;If the screening existed, it was deleted&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

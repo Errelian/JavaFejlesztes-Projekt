@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ScreeningServiceImpl implements ScreeningService{
+public class ScreeningServiceImpl implements ScreeningService {
 
     private final ScreeningRepository screeningRepository;
 
@@ -25,7 +25,8 @@ public class ScreeningServiceImpl implements ScreeningService{
     @Override
     public void addScreening(ScreeningDto screeningDto) {
 
-        Screening screening = new Screening(screeningDto.getMovie().getTitle(), screeningDto.getRoom().getName(), screeningDto.getScreeningDate());
+        Screening screening = new Screening(screeningDto.getMovie().getTitle(), screeningDto.getRoom().getName(),
+            screeningDto.getScreeningDate());
 
         screeningRepository.save(screening);
 
@@ -43,9 +44,10 @@ public class ScreeningServiceImpl implements ScreeningService{
 
     @Override
     public Long getScreeningId(String title, String roomName, LocalDateTime screeningDate) {
-        Optional<Screening> wantedScreening = screeningRepository.findByMovieTitleAndRoomNameAndScreeningDate(title, roomName, screeningDate);
+        Optional<Screening> wantedScreening =
+            screeningRepository.findByMovieTitleAndRoomNameAndScreeningDate(title, roomName, screeningDate);
 
-        if (wantedScreening.isPresent()){
+        if (wantedScreening.isPresent()) {
             return wantedScreening.get().getId();
         }
         return -1L;
@@ -63,12 +65,13 @@ public class ScreeningServiceImpl implements ScreeningService{
     }
 
     @Override
-    public Optional<Screening> getScreeningByTitleRoomAndDate(String movieTitle, String roomName, LocalDateTime screeningDate) {
+    public Optional<Screening> getScreeningByTitleRoomAndDate(String movieTitle, String roomName,
+                                                              LocalDateTime screeningDate) {
         return screeningRepository.findByMovieTitleAndRoomNameAndScreeningDate(movieTitle, roomName, screeningDate);
     }
 
     @Override
-    public List<Screening> getScreeningsInSameRoom(String roomName){
+    public List<Screening> getScreeningsInSameRoom(String roomName) {
         return screeningRepository.findByRoomName(roomName);
     }
 }

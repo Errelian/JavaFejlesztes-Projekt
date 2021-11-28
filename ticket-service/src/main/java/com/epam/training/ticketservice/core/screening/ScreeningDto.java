@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @Generated
 public class ScreeningDto {
 
-        private final Movie movie;
-        private final Room room;
-        private final LocalDateTime screeningDate;
+    private final Movie movie;
+    private final Room room;
+    private final LocalDateTime screeningDate;
 
 }

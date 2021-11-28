@@ -14,7 +14,7 @@ public class MovieServiceImpl implements MovieService {
     private final MovieRepository movieRepository;
 
     @Autowired
-    public MovieServiceImpl(MovieRepository movieRepository){
+    public MovieServiceImpl(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
 
@@ -31,8 +31,7 @@ public class MovieServiceImpl implements MovieService {
     public void updateExistingMovie(String title, String genre, Long length) {
         Optional<Movie> queriedMovie = movieRepository.findByTitle(title);
 
-        if (queriedMovie.isPresent())
-        {
+        if (queriedMovie.isPresent()) {
             Movie newMovie = queriedMovie.get();
             newMovie.setGenre(genre);
             newMovie.setLength(length);
@@ -59,7 +58,7 @@ public class MovieServiceImpl implements MovieService {
     public long getLengthInMinutes(String title) {
         Optional<Movie> movieTemp = movieRepository.findByTitle(title);
 
-        if (movieTemp.isPresent()){
+        if (movieTemp.isPresent()) {
             Movie movie = movieTemp.get();
             return movie.getLength();
         }

@@ -11,31 +11,29 @@ import org.springframework.shell.standard.ShellMethodAvailability;
 <span class="nc" id="L11">public class SignInCommand extends SecuredCommand {</span>
 
     @ShellMethod(key = &quot;sign in privileged&quot;, value = &quot;Sign in as admin.&quot;)
-    public String signInAdmin(String username, String pass){
-<span class="nc bnc" id="L15" title="All 4 branches missed.">        if (username.equals(&quot;admin&quot;) &amp;&amp; pass.equals(&quot;admin&quot;)){</span>
+    public String signInAdmin(String username, String pass) {
+<span class="nc bnc" id="L15" title="All 4 branches missed.">        if (username.equals(&quot;admin&quot;) &amp;&amp; pass.equals(&quot;admin&quot;)) {</span>
 <span class="nc" id="L16">            setAuthentication(true);</span>
 <span class="nc" id="L17">            return &quot;Signed in.&quot;;</span>
-        }
-        else{
-<span class="nc" id="L20">            setAuthentication(false);</span>
-<span class="nc" id="L21">            return &quot;Login failed due to incorrect credentials.&quot;;</span>
+        } else {
+<span class="nc" id="L19">            setAuthentication(false);</span>
+<span class="nc" id="L20">            return &quot;Login failed due to incorrect credentials.&quot;;</span>
         }
     }
 
     @ShellMethodAvailability(&quot;isAdmin&quot;)
     @ShellMethod(key = &quot;sign out&quot;, value = &quot;Sign out.&quot;)
-    public String signOut(){
-<span class="nc" id="L28">        setAuthentication(false);</span>
-<span class="nc" id="L29">        return &quot;Signed out, mate.&quot;;</span>
+    public String signOut() {
+<span class="nc" id="L27">        setAuthentication(false);</span>
+<span class="nc" id="L28">        return &quot;Signed out, mate.&quot;;</span>
     }
 
     @ShellMethod(key = &quot;describe account&quot;, value = &quot;Describes the account.&quot;)
-    public String describeAccount(){
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        if(isAuthentication()) {</span>
-<span class="nc" id="L35">            return &quot;Signed in with privileged account admin&quot;;</span>
-        }
-        else{
-<span class="nc" id="L38">            return &quot;You are not signed in.&quot;;</span>
+    public String describeAccount() {
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (isAuthentication()) {</span>
+<span class="nc" id="L34">            return &quot;Signed in with privileged account admin&quot;;</span>
+        } else {
+<span class="nc" id="L36">            return &quot;You are not signed in.&quot;;</span>
         }
     }
 

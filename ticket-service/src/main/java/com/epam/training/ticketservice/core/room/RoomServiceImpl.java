@@ -8,14 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RoomServiceImpl implements RoomService{
-
+public class RoomServiceImpl implements RoomService {
 
 
     private final RoomRepository roomRepository;
 
     @Autowired
-    public RoomServiceImpl(RoomRepository roomRepository){
+    public RoomServiceImpl(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
     }
 
@@ -29,13 +28,13 @@ public class RoomServiceImpl implements RoomService{
     public void updateExistingRoom(RoomDto roomDto) {
         Optional<Room> queriedRoom = roomRepository.findByName(roomDto.getName());
 
-        if (queriedRoom.isPresent())
-        {
+        if (queriedRoom.isPresent()) {
             Room newRoom = queriedRoom.get();
             newRoom.setSeatColumns(roomDto.getSeatColumns());
             newRoom.setSeatRows(roomDto.getSeatRows());
             roomRepository.save(newRoom);
-        };
+        }
+        ;
     }
 
     @Override

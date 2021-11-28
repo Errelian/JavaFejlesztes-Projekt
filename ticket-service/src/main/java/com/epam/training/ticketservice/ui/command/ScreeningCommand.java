@@ -37,28 +37,28 @@ public class ScreeningCommand extends SecuredCommand {
 
     @ShellMethodAvailability("isAdmin")
     @ShellMethod(key = "create screening", value = "Creates another screening.")
-    public String createScreening(String movieTitle, String roomName, String screeningDate){
+    public String createScreening(String movieTitle, String roomName, String screeningDate) {
         Optional<Movie> movie = movieService.getExistingMovieByTitle(movieTitle);
         Optional<Room> room = roomService.getRoomByName(roomName);
 
-        if(room.isPresent() && movie.isPresent()){
-            LocalDateTime screeningTime = LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        if (room.isPresent() && movie.isPresent()) {
+            LocalDateTime screeningTime =
+                LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 
             List<Screening> screeningsInTheSameRoom = screeningService.getScreeningsInSameRoom(room.get().getName());
 
-            for (Screening screening : screeningsInTheSameRoom){
+            for (Screening screening : screeningsInTheSameRoom) {
 
-                /**System.out.println(screening.getScreeningDate());
-                System.out.println(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle())));
-
-                System.out.println(screeningTime.isAfter(screening.getScreeningDate()));
-                System.out.println(screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))));**/
-
-                if (screeningTime.isAfter(screening.getScreeningDate()) && screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle())))){
+                if (screeningTime.isAfter(screening.getScreeningDate()) && screeningTime.isBefore(
+                    screening.getScreeningDate()
+                        .plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle())))) {
                     return "There is an overlapping screening";
                 }
 
-                if (screeningTime.isAfter(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))) && screeningTime.isBefore(screening.getScreeningDate().plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()) + 10))) {
+                if (screeningTime.isAfter(screening.getScreeningDate()
+                    .plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))) && screeningTime.isBefore(
+                    screening.getScreeningDate()
+                        .plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()) + 10))) {
                     return "This would start in the break period after another screening in this room.";
                 }
             }
@@ -71,30 +71,32 @@ public class ScreeningCommand extends SecuredCommand {
     }
 
     @ShellMethod(key = "list screenings", value = "Lists all screenings.")
-    public String listAllScreenings(){
+    public String listAllScreenings() {
         List<Screening> screenings = screeningService.listScreenings();
         String stringToReturn = "";
-        if (screenings.isEmpty()){
+        if (screenings.isEmpty()) {
             stringToReturn = "There are no screenings";
-        }
-        else{
-            for (Screening screening : screenings){
+        } else {
+            for (Screening screening : screenings) {
                 Optional<Movie> movie = movieService.getExistingMovieByTitle(screening.getMovieTitle());
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
                 String formattedDateTime = screening.getScreeningDate().format(formatter);
-                stringToReturn += screening.getMovieTitle() + " (" + movie.get().getGenre() + ", " + movie.get().getLength() + " minutes), screened in room " + screening.getRoomName() + ", at " + formattedDateTime + "\n";
+                stringToReturn +=
+                    screening.getMovieTitle() + " (" + movie.get().getGenre() + ", " + movie.get().getLength() +
+                        " minutes), screened in room " + screening.getRoomName() + ", at " + formattedDateTime + "\n";
             }
         }
-        return stringToReturn.substring(0,stringToReturn.length()-1);
+        return stringToReturn.substring(0, stringToReturn.length() - 1);
 
     }
 
     @ShellMethodAvailability("isAdmin")
     @ShellMethod(key = "delete screening", value = "Deletes a screening.")
-    public String deleteScreening(String movieTitle, String roomName, String screeningDate){
-        LocalDateTime screeningTime = LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+    public String deleteScreening(String movieTitle, String roomName, String screeningDate) {
+        LocalDateTime screeningTime =
+            LocalDateTime.parse(screeningDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         screeningService.deleteScreening(movieTitle, roomName, screeningTime);
 
         return "If the screening existed, it was deleted";

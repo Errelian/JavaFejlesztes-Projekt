@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ScreeningServiceImpl implements ScreeningService{
+public class ScreeningServiceImpl implements ScreeningService {
 
     private final ScreeningRepository screeningRepository;
 
@@ -25,51 +25,54 @@ public class ScreeningServiceImpl implements ScreeningService{
     @Override
     public void addScreening(ScreeningDto screeningDto) {
 
-<span class="nc" id="L28">        Screening screening = new Screening(screeningDto.getMovie().getTitle(), screeningDto.getRoom().getName(), screeningDto.getScreeningDate());</span>
+<span class="nc" id="L28">        Screening screening = new Screening(screeningDto.getMovie().getTitle(), screeningDto.getRoom().getName(),</span>
+<span class="nc" id="L29">            screeningDto.getScreeningDate());</span>
 
-<span class="nc" id="L30">        screeningRepository.save(screening);</span>
+<span class="nc" id="L31">        screeningRepository.save(screening);</span>
 
-<span class="nc" id="L32">    }</span>
+<span class="nc" id="L33">    }</span>
 
     @Override
     public void deleteScreening(String movieTitle, String roomName, LocalDateTime screeeningDate) {
-<span class="nc" id="L36">        screeningRepository.deleteByMovieTitleAndRoomNameAndScreeningDate(movieTitle, roomName, screeeningDate);</span>
-<span class="nc" id="L37">    }</span>
+<span class="nc" id="L37">        screeningRepository.deleteByMovieTitleAndRoomNameAndScreeningDate(movieTitle, roomName, screeeningDate);</span>
+<span class="nc" id="L38">    }</span>
 
     @Override
     public List&lt;Screening&gt; listScreenings() {
-<span class="nc" id="L41">        return screeningRepository.findAll();</span>
+<span class="nc" id="L42">        return screeningRepository.findAll();</span>
     }
 
     @Override
     public Long getScreeningId(String title, String roomName, LocalDateTime screeningDate) {
-<span class="nc" id="L46">        Optional&lt;Screening&gt; wantedScreening = screeningRepository.findByMovieTitleAndRoomNameAndScreeningDate(title, roomName, screeningDate);</span>
+<span class="nc" id="L47">        Optional&lt;Screening&gt; wantedScreening =</span>
+<span class="nc" id="L48">            screeningRepository.findByMovieTitleAndRoomNameAndScreeningDate(title, roomName, screeningDate);</span>
 
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (wantedScreening.isPresent()){</span>
-<span class="nc" id="L49">            return wantedScreening.get().getId();</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (wantedScreening.isPresent()) {</span>
+<span class="nc" id="L51">            return wantedScreening.get().getId();</span>
         }
-<span class="nc" id="L51">        return -1L;</span>
+<span class="nc" id="L53">        return -1L;</span>
     }
 
     @Override
     public String getNameById(Long id) {
-<span class="nc" id="L56">        Screening wantedScreening = screeningRepository.getById(id);</span>
-<span class="nc" id="L57">        return wantedScreening.getRoomName();</span>
+<span class="nc" id="L58">        Screening wantedScreening = screeningRepository.getById(id);</span>
+<span class="nc" id="L59">        return wantedScreening.getRoomName();</span>
     }
 
     @Override
     public Screening getScreeningById(Long id) {
-<span class="nc" id="L62">        return screeningRepository.getById(id);</span>
+<span class="nc" id="L64">        return screeningRepository.getById(id);</span>
     }
 
     @Override
-    public Optional&lt;Screening&gt; getScreeningByTitleRoomAndDate(String movieTitle, String roomName, LocalDateTime screeningDate) {
-<span class="nc" id="L67">        return screeningRepository.findByMovieTitleAndRoomNameAndScreeningDate(movieTitle, roomName, screeningDate);</span>
+    public Optional&lt;Screening&gt; getScreeningByTitleRoomAndDate(String movieTitle, String roomName,
+                                                              LocalDateTime screeningDate) {
+<span class="nc" id="L70">        return screeningRepository.findByMovieTitleAndRoomNameAndScreeningDate(movieTitle, roomName, screeningDate);</span>
     }
 
     @Override
-    public List&lt;Screening&gt; getScreeningsInSameRoom(String roomName){
-<span class="nc" id="L72">        return screeningRepository.findByRoomName(roomName);</span>
+    public List&lt;Screening&gt; getScreeningsInSameRoom(String roomName) {
+<span class="nc" id="L75">        return screeningRepository.findByRoomName(roomName);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -20,27 +20,26 @@ public class MovieCommand extends SecuredCommand {
 
 
     @Autowired
-    public MovieCommand(MovieService movieService){
+    public MovieCommand(MovieService movieService) {
         this.movieService = movieService;
     }
 
-    @ShellMethod(key= "create movie", value="Add the movie to the Database")
+    @ShellMethod(key = "create movie", value = "Add the movie to the Database")
     @ShellMethodAvailability("isAdmin")
-    public String createMovie(String title, String genre, Long length){
+    public String createMovie(String title, String genre, Long length) {
         MovieDto movieDto = new MovieDto(title, genre, length);
         movieService.saveMovie(movieDto);
         return "Movie saved.";
     }
 
-    @ShellMethod(key="list movies", value="List all movies in the Database")
-    public String listAllMovies(){
+    @ShellMethod(key = "list movies", value = "List all movies in the Database")
+    public String listAllMovies() {
         List<Movie> movieList = movieService.listAllMovies();
         String stringToReturn = "";
-        if(movieList.isEmpty()){
+        if (movieList.isEmpty()) {
             stringToReturn = "There are no movies at the moment";
-        }
-        else{
-            for (Movie movie : movieList){
+        } else {
+            for (Movie movie : movieList) {
                 stringToReturn += movie.toString();
             }
         }
@@ -49,15 +48,15 @@ public class MovieCommand extends SecuredCommand {
 
     @ShellMethod(key = "update movie", value = "Update given movie's properties")
     @ShellMethodAvailability("isAdmin")
-    public String updateMovie(String title, String genre, Long length){
-        MovieDto movieDTO = new MovieDto(title, genre, length);
-        movieService.saveMovie(movieDTO);
+    public String updateMovie(String title, String genre, Long length) {
+        MovieDto movieDto = new MovieDto(title, genre, length);
+        movieService.saveMovie(movieDto);
         return "Movie updated.";
     }
 
-    @ShellMethod(key = "delete movie", value= "Deletes movie from database.")
+    @ShellMethod(key = "delete movie", value = "Deletes movie from database.")
     @ShellMethodAvailability("isAdmin")
-    public String deleteMovie(String title){
+    public String deleteMovie(String title) {
         movieService.deleteExistingMovie(title);
         return "If the movie existed, it was deleted.";
     }
