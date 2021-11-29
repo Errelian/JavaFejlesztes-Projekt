@@ -75,7 +75,7 @@ public class ScreeningCommand extends SecuredCommand {
         List<Screening> screenings = screeningService.listScreenings();
         String stringToReturn = "";
         if (screenings.isEmpty()) {
-            stringToReturn = "There are no screenings";
+            return "There are no screenings";
         } else {
             for (Screening screening : screenings) {
                 Optional<Movie> movie = movieService.getExistingMovieByTitle(screening.getMovieTitle());
@@ -84,8 +84,8 @@ public class ScreeningCommand extends SecuredCommand {
 
                 String formattedDateTime = screening.getScreeningDate().format(formatter);
                 stringToReturn +=
-                    screening.getMovieTitle() + " (" + movie.get().getGenre() + ", " + movie.get().getLength() +
-                        " minutes), screened in room " + screening.getRoomName() + ", at " + formattedDateTime + "\n";
+                    screening.getMovieTitle() + " (" + movie.get().getGenre() + ", " + movie.get().getLength()
+                        + " minutes), screened in room " + screening.getRoomName() + ", at " + formattedDateTime + "\n";
             }
         }
         return stringToReturn.substring(0, stringToReturn.length() - 1);

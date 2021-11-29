@@ -1,9 +1,13 @@
 package com.epam.training.ticketservice.core.movie;
 
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.Generated;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Getter
 @Setter

@@ -13,8 +13,8 @@ public abstract class SecuredCommand {
 
     private static boolean authentication = false;
 
-    public Availability isAdmin(){
-        if (authentication){
+    public Availability isAdmin() {
+        if (authentication) {
             return Availability.available();
         }
         return Availability.unavailable("You are not signed in");
