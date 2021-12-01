@@ -169,5 +169,8 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node
 
 # Spring stuff
-
 spring-shell.log
+
+#Specific-things
+
+/ticket-service/.idea
