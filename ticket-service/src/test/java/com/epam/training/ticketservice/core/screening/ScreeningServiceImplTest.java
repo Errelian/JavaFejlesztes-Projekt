@@ -1,5 +1,7 @@
 package com.epam.training.ticketservice.core.screening;
 
+import com.epam.training.ticketservice.core.screening.impl.ScreeningServiceImpl;
+import com.epam.training.ticketservice.core.screening.persistance.repository.ScreeningRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

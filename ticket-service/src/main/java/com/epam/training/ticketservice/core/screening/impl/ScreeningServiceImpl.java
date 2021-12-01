@@ -1,8 +1,10 @@
-package com.epam.training.ticketservice.core.screening;
+package com.epam.training.ticketservice.core.screening.impl;
 
 
-import com.epam.training.ticketservice.core.movie.MovieRepository;
-import com.epam.training.ticketservice.core.room.RoomRepository;
+import com.epam.training.ticketservice.core.screening.persistance.entity.Screening;
+import com.epam.training.ticketservice.core.screening.ScreeningDto;
+import com.epam.training.ticketservice.core.screening.persistance.repository.ScreeningRepository;
+import com.epam.training.ticketservice.core.screening.ScreeningService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

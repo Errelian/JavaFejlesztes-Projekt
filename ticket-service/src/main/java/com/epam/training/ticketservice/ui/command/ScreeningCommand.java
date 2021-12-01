@@ -1,11 +1,11 @@
 package com.epam.training.ticketservice.ui.command;
 
 
-import com.epam.training.ticketservice.core.movie.Movie;
+import com.epam.training.ticketservice.core.movie.persistance.entity.Movie;
 import com.epam.training.ticketservice.core.movie.MovieService;
-import com.epam.training.ticketservice.core.room.Room;
+import com.epam.training.ticketservice.core.room.persistance.entity.Room;
 import com.epam.training.ticketservice.core.room.RoomService;
-import com.epam.training.ticketservice.core.screening.Screening;
+import com.epam.training.ticketservice.core.screening.persistance.entity.Screening;
 import com.epam.training.ticketservice.core.screening.ScreeningDto;
 import com.epam.training.ticketservice.core.screening.ScreeningService;
 import com.epam.training.ticketservice.ui.security.SecuredCommand;

@@ -1,6 +1,9 @@
-package com.epam.training.ticketservice.core.room;
+package com.epam.training.ticketservice.core.room.impl;
 
-import com.epam.training.ticketservice.core.movie.Movie;
+import com.epam.training.ticketservice.core.room.persistance.entity.Room;
+import com.epam.training.ticketservice.core.room.RoomDto;
+import com.epam.training.ticketservice.core.room.persistance.repository.RoomRepository;
+import com.epam.training.ticketservice.core.room.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

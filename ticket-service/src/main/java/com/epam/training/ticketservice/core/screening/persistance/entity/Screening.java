@@ -1,4 +1,4 @@
-package com.epam.training.ticketservice.core.screening;
+package com.epam.training.ticketservice.core.screening.persistance.entity;
 
 import lombok.Generated;
 import lombok.Getter;

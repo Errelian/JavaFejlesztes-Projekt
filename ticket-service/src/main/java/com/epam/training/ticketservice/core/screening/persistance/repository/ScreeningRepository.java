@@ -1,9 +1,9 @@
-package com.epam.training.ticketservice.core.screening;
+package com.epam.training.ticketservice.core.screening.persistance.repository;
 
 
+import com.epam.training.ticketservice.core.screening.persistance.entity.Screening;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

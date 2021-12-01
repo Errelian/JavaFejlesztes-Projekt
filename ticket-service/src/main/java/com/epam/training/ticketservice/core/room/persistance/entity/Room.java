@@ -1,4 +1,4 @@
-package com.epam.training.ticketservice.core.room;
+package com.epam.training.ticketservice.core.room.persistance.entity;
 
 
 import lombok.Getter;

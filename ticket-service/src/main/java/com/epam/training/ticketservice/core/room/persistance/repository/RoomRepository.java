@@ -1,6 +1,6 @@
-package com.epam.training.ticketservice.core.room;
+package com.epam.training.ticketservice.core.room.persistance.repository;
 
-import com.epam.training.ticketservice.core.movie.Movie;
+import com.epam.training.ticketservice.core.room.persistance.entity.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;

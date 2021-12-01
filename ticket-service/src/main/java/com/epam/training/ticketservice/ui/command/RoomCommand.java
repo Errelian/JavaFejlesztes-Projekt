@@ -1,12 +1,10 @@
 package com.epam.training.ticketservice.ui.command;
 
 
-import com.epam.training.ticketservice.core.movie.Movie;
-import com.epam.training.ticketservice.core.room.Room;
+import com.epam.training.ticketservice.core.room.persistance.entity.Room;
 import com.epam.training.ticketservice.core.room.RoomDto;
 import com.epam.training.ticketservice.core.room.RoomService;
 import com.epam.training.ticketservice.ui.security.SecuredCommand;
-import org.dom4j.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;

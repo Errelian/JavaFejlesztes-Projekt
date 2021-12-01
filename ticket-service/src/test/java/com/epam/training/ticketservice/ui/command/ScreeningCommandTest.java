@@ -1,15 +1,14 @@
 package com.epam.training.ticketservice.ui.command;
 
-import com.epam.training.ticketservice.core.movie.Movie;
-import com.epam.training.ticketservice.core.movie.MovieServiceImpl;
-import com.epam.training.ticketservice.core.room.RoomServiceImpl;
-import com.epam.training.ticketservice.core.screening.Screening;
-import com.epam.training.ticketservice.core.screening.ScreeningServiceImpl;
+import com.epam.training.ticketservice.core.movie.persistance.entity.Movie;
+import com.epam.training.ticketservice.core.movie.impl.MovieServiceImpl;
+import com.epam.training.ticketservice.core.room.impl.RoomServiceImpl;
+import com.epam.training.ticketservice.core.screening.persistance.entity.Screening;
+import com.epam.training.ticketservice.core.screening.impl.ScreeningServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;

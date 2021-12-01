@@ -1,5 +1,7 @@
 package com.epam.training.ticketservice.core.room;
 
+import com.epam.training.ticketservice.core.room.persistance.entity.Room;
+
 import java.util.List;
 import java.util.Optional;
 
