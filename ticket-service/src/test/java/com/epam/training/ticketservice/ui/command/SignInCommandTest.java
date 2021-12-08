@@ -15,9 +15,9 @@ class SignInCommandTest {
 
     @Test
     void signInAdmin() {
-        assertEquals("Signed in.", signInCommand.signInAdmin("admin", "admin"));
-        assertEquals("Login failed due to incorrect credentials.", signInCommand.signInAdmin("asd", "asd"));
-        assertEquals("Login failed due to incorrect credentials.", signInCommand.signInAdmin("admin", "asd"));
+        assertEquals("Signed in", signInCommand.signInAdmin("admin", "admin"));
+        assertEquals("Login failed due to incorrect credentials", signInCommand.signInAdmin("asd", "asd"));
+        assertEquals("Login failed due to incorrect credentials", signInCommand.signInAdmin("admin", "asd"));
 
     }
 
@@ -28,9 +28,9 @@ class SignInCommandTest {
 
     @Test
     void describeAccount() {
-        assertEquals("You are not signed in.", signInCommand.describeAccount());
+        assertEquals("You are not signed in", signInCommand.describeAccount());
         signInCommand.signInAdmin("admin", "admin");
-        assertEquals("Signed in with privileged account admin", signInCommand.describeAccount());
+        assertEquals("Signed in with privileged account 'admin'", signInCommand.describeAccount());
 
 
     }

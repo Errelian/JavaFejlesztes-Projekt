@@ -59,7 +59,7 @@ public class ScreeningCommand extends SecuredCommand {
                     .plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()))) && screeningTime.isBefore(
                     screening.getScreeningDate()
                         .plusMinutes(movieService.getLengthInMinutes(screening.getMovieTitle()) + 10))) {
-                    return "This would start in the break period after another screening in this room.";
+                    return "This would start in the break period after another screening in this room";
                 }
             }
 
